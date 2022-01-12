@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><b>digital clock</b></p>
+    <h1 id="dt"> </h1>
+    <script>
+    
+    function showtime(){
+        let date = new Date();
+        let h = date.getHours();
+        let m = date.getMinutes();
+        let s = date.getSeconds();
+        let ms = date.getMilliseconds();
+ 
+
+        let session ="AM";
+
+
+        if(h==0){
+            h = 12;
+        }
+        if(h > 12){
+            h= h-12;
+            session ="PM";
+        }
+       
+       //Using Ternery Opearator 
+       h=(h <10) ? "0"+h : h;
+       m=(m <10) ? "0"+m : m;
+       s=(s <10) ? "0"+s: s;
+
+        let time = h +" : "+ m +" : "+ s +" : "+ ms +" "+session;
+        document.getElementById("dt").innerHTML = time;
+        setTimeout(showtime, 1000)
+
+    }
+    showtime();
+    </script>
+</body>
+</html>
